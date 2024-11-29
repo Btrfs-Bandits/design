@@ -1,0 +1,261 @@
+<html>
+<head>
+    <title>Btrfs File Recovery App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-6">Btrfs File Recovery App</h1>
+        <div class="flex space-x-6">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-1/3">
+                <h2 class="text-2xl font-bold mb-4">Input Details</h2>
+                <form>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2" for="disk-location">Disk Location</label>
+                        <input class="w-full p-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="disk-location" name="disk-location" type="text"/>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <div class="w-full">
+                            <label class="block text-sm font-medium mb-2" for="file-name">File Name</label>
+                            <input class="w-full p-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="file-name" name="file-name" type="text"/>
+                        </div>
+                        <div class="ml-4">
+                            <label class="block text-sm font-medium mb-2" for="all-files">All Files</label>
+                            <input class="form-checkbox h-5 w-5 text-blue-600" id="all-files" name="all-files" type="checkbox"/>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <div class="w-full">
+                            <label class="block text-sm font-medium mb-2" for="directory">Directory</label>
+                            <input class="w-full p-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="directory" name="directory" type="text"/>
+                        </div>
+                        <div class="ml-4">
+                            <label class="block text-sm font-medium mb-2" for="all-directories">All Directories</label>
+                            <input class="form-checkbox h-5 w-5 text-blue-600" id="all-directories" name="all-directories" type="checkbox"/>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Recover Files</button>
+                    <div class="mt-4">
+                        <div class="h-2 bg-gray-700 rounded-full">
+                            <div class="h-2 bg-blue-600 rounded-full" style="width: 50%;"></div>
+                        </div>
+                        <p class="text-sm mt-2">50% completed</p>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-2/3 overflow-y-auto h-screen">
+                <h2 class="text-2xl font-bold mb-4">Recovered Files <span class="text-sm text-gray-400">(15 files)</span></h2>
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Date</th>
+                            <th class="px-4 py-2">Size</th>
+                            <th class="px-4 py-2">Type</th>
+                            <th class="px-4 py-2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Text file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/VcT5HZZp5fXGFqJCD6AIXHHN2tyLCpBKAz8mJUVbqVe1eornA.jpg"/>
+                                file1.txt
+                            </td>
+                            <td class="border px-4 py-2">2023-10-01</td>
+                            <td class="border px-4 py-2">15 KB</td>
+                            <td class="border px-4 py-2">Text File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Image file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/K5U7SdqdZBoDL5SL3ENCCnb0lYvQs4MsO7llPBeSCe4teornA.jpg"/>
+                                image1.png
+                            </td>
+                            <td class="border px-4 py-2">2023-10-02</td>
+                            <td class="border px-4 py-2">150 KB</td>
+                            <td class="border px-4 py-2">Image File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="PDF file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/9ZfH0Y3B6c0fAUJhi8orKRDqXtflsAEHEnjufwJYHBly6RXPB.jpg"/>
+                                document1.pdf
+                            </td>
+                            <td class="border px-4 py-2">2023-10-03</td>
+                            <td class="border px-4 py-2">1.2 MB</td>
+                            <td class="border px-4 py-2">PDF File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Video file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/Tgt3JHCnMCY9HtIls7hF1dBF27njrflamT4WUyxztqzVP66JA.jpg"/>
+                                video1.mp4
+                            </td>
+                            <td class="border px-4 py-2">2023-10-04</td>
+                            <td class="border px-4 py-2">20 MB</td>
+                            <td class="border px-4 py-2">Video File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Audio file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/p8uoNfcqhXySFqKQ1PDdI6cpqPsnE8UU6eQih0FKRvft9ornA.jpg"/>
+                                audio1.mp3
+                            </td>
+                            <td class="border px-4 py-2">2023-10-05</td>
+                            <td class="border px-4 py-2">3 MB</td>
+                            <td class="border px-4 py-2">Audio File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Archive file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/QcIRXEDdWHKEOJYC5iJEyHCPIXaMbBv6HSMMQgjAyfFcP66JA.jpg"/>
+                                archive1.zip
+                            </td>
+                            <td class="border px-4 py-2">2023-10-06</td>
+                            <td class="border px-4 py-2">5 MB</td>
+                            <td class="border px-4 py-2">Archive File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Spreadsheet file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/MKC9SeV6XH0PBKshNY976G5xNXjUSuYXDwLKxrHznWddP66JA.jpg"/>
+                                spreadsheet1.xlsx
+                            </td>
+                            <td class="border px-4 py-2">2023-10-07</td>
+                            <td class="border px-4 py-2">500 KB</td>
+                            <td class="border px-4 py-2">Spreadsheet File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Presentation file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/J0yUEeJp3SSwQC23IgUntHkQSYjz88hgJFBm02v279jYP66JA.jpg"/>
+                                presentation1.pptx
+                            </td>
+                            <td class="border px-4 py-2">2023-10-08</td>
+                            <td class="border px-4 py-2">2 MB</td>
+                            <td class="border px-4 py-2">Presentation File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="JavaScript file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/fq0NKUwpH217MyjwHQ1GecfHSwlttMrOAF8pezVSfVl51jueE.jpg"/>
+                                script1.js
+                            </td>
+                            <td class="border px-4 py-2">2023-10-09</td>
+                            <td class="border px-4 py-2">50 KB</td>
+                            <td class="border px-4 py-2">JavaScript File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="CSS file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/XTwe3ejV2nqrsEP9KrDYL4ARTexKEepEKOTXNMVMCQdP7RXPB.jpg"/>
+                                style1.css
+                            </td>
+                            <td class="border px-4 py-2">2023-10-10</td>
+                            <td class="border px-4 py-2">20 KB</td>
+                            <td class="border px-4 py-2">CSS File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="JSON file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/oI1YFpstUhqDOVepc6WEXQT1xB65yI7dQWqdOeceQDfk7RXPB.jpg"/>
+                                config1.json
+                            </td>
+                            <td class="border px-4 py-2">2023-10-11</td>
+                            <td class="border px-4 py-2">10 KB</td>
+                            <td class="border px-4 py-2">JSON File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Log file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/ZvzeYq98wGXkGqn17KWSOh2SG9sWZ6hTJoXMtk8hgvUYP66JA.jpg"/>
+                                log1.log
+                            </td>
+                            <td class="border px-4 py-2">2023-10-12</td>
+                            <td class="border px-4 py-2">5 KB</td>
+                            <td class="border px-4 py-2">Log File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Database file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/O3uH3kTf6m1se0YSRaQk9tBzMdb4D2LUUdsp8ELpdSupeornA.jpg"/>
+                                database1.db
+                            </td>
+                            <td class="border px-4 py-2">2023-10-13</td>
+                            <td class="border px-4 py-2">10 MB</td>
+                            <td class="border px-4 py-2">Database File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-600">
+                            <td class="border px-4 py-2 flex items-center">
+                                <img alt="Backup file icon" class="w-8 h-8 mr-2" src="https://storage.googleapis.com/a1aa/image/is3nUQF4ivbEGV7GP0yMMC79f9eT3QUCXoFDk9rPp2Y3eornA.jpg"/>
+                                backup1.bak
+                            </td>
+                            <td class="border px-4 py-2">2023-10-14</td>
+                            <td class="border px-4 py-2">50 MB</td>
+                            <td class="border px-4 py-2">Backup File</td>
+                            <td class="border px-4 py-2">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </td>
+                        </tr
